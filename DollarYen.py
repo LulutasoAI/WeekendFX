@@ -14,13 +14,13 @@ class WeekendFX():
         #currency_candidates = "BTC-USD","BTC-JPY"
         today = date.today()
         yesterday = today - timedelta(days=1)
-        btc_data = pdr.get_data_yahoo([symbol], 
+        price_data = pdr.get_data_yahoo([symbol], 
                           start=yesterday, 
                           end=today)['Close']
-        price = btc_data[symbol][-1]
+        price = price_data[symbol][-1]
         if logout:
             print("The latest {} price : {}".format(symbol, price))
-            #print(btc_data)
+            #print(price_data)
         return price
     
     def to_csv(self,to_chart:Dict[str,List[float]], title:str):
