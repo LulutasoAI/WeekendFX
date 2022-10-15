@@ -25,7 +25,7 @@ class WeekendFX():
     
     def to_csv(self,to_chart:Dict[str,List[float]], title:str):
         df = pd.DataFrame(to_chart)
-        datetime_string = datetime.now().strftime('%Y_%m_%d_%H:%M:%S')
+        datetime_string = datetime.now().strftime('%Y_%m_%d_%H%M%S')
         df.to_csv(title+"_"+datetime_string+".csv")
         
     
