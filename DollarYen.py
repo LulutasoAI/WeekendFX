@@ -10,7 +10,7 @@ class WeekendFX():
     def __init__(self) -> None:
         pass 
 
-    def get_BTC_price(self, symbol:str, logout:bool = True):
+    def get_current_price(self, symbol:str, logout:bool = True):
         #currency_candidates = "BTC-USD","BTC-JPY"
         today = date.today()
         yesterday = today - timedelta(days=1)
@@ -36,8 +36,8 @@ if __name__ == ("__main__"):
     
     to_chart = {"prices" :[]}
     while True:
-        BTC_USD_price = weekendFX.get_BTC_price("BTC-USD",True)
-        BTC_JPY_price = weekendFX.get_BTC_price("BTC-JPY",True)
+        BTC_USD_price = weekendFX.get_current_price("BTC-USD",True)
+        BTC_JPY_price = weekendFX.get_current_price("BTC-JPY",True)
         USD_JPY_rate = round((BTC_JPY_price/BTC_USD_price),3)
         print(USD_JPY_rate)
         to_chart["prices"].append(USD_JPY_rate)
