@@ -17,7 +17,7 @@ class WeekendFX():
         price_data = pdr.get_data_yahoo([symbol], 
                           start=yesterday, 
                           end=today)['Close']
-        price = price_data[symbol][-1]
+        price = round(price_data[symbol][-1],3)
         if logout:
             print("The latest {} price : {}".format(symbol, price))
             #print(price_data)
@@ -29,7 +29,6 @@ class WeekendFX():
         df.to_csv(title+"_"+datetime_string+".csv")
         
     
-
 if __name__ == ("__main__"):
     weekendFX = WeekendFX()
     time_count = 0
